@@ -32,9 +32,9 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'dnslookup',
+    'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',
-    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,12 +53,24 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = [
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_HEADERS =(
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'user-agent',
+    'x-requested-with',
+    'x-csrftoken',
+
+)
+#CORS_ALLOWED_ORIGINS = [
     # "https://example.com",
     # "https://sub.example.com",
-    "http://localhost:9100",
+#    "https://lewicpro.github.io",
     # "http://127.0.0.1:9000"
-]
+#]
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
