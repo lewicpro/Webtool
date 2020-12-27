@@ -33,9 +33,9 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'nmapapp',
     'dnslookup',
+    'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',
-    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -64,13 +64,16 @@ CORS_ORIGIN_HEADERS =(
     'user-agent',
     'x-requested-with',
     'x-csrftoken',
+
+
 )
-# CORS_ALLOWED_ORIGINS = [
-#     # "https://example.com",
-#     # "https://sub.example.com",
-#     "http://localhost:9000",
-#     # "http://127.0.0.1:9000"
-# ]
+#CORS_ALLOWED_ORIGINS = [
+    # "https://example.com",
+    # "https://sub.example.com",
+#    "https://lewicpro.github.io",
+    # "http://127.0.0.1:9000"
+#]
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
