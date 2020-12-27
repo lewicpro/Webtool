@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('dnslookup.api.urls'))
+    path('api/', include('dnslookup.api.urls')),
+    path('nmapi/', include('nmapapp.api.urls'))
 ]
