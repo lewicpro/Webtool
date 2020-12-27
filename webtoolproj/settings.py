@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'nmapapp',
     'dnslookup',
     'corsheaders',
     'rest_framework.authtoken',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,12 +54,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = [
-    # "https://example.com",
-    # "https://sub.example.com",
-    "http://localhost:9100",
-    # "http://127.0.0.1:9000"
-]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_HEADERS =(
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'user-agent',
+    'x-requested-with',
+    'x-csrftoken',
+)
+# CORS_ALLOWED_ORIGINS = [
+#     # "https://example.com",
+#     # "https://sub.example.com",
+#     "http://localhost:9000",
+#     # "http://127.0.0.1:9000"
+# ]
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
